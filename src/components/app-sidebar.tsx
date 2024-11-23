@@ -1,8 +1,11 @@
 import * as React from "react"
-import { ArchiveX, Command, File, Inbox, Send, Trash2 } from "lucide-react"
+import { ArchiveX, Command, File, Inbox, Send, Trash2, Landmark, UserRound, Book, ChartPie } from "lucide-react"
 
 import { NavUser } from "@/components/nav-user"
 import { Label } from "@/components/ui/label"
+import { Separator } from "@/components/ui/separator"
+import {Button} from "@/components/ui/button"
+
 import {
   Sidebar,
   SidebarContent,
@@ -15,47 +18,43 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
+
 } from "@/components/ui/sidebar"
 import { Switch } from "@/components/ui/switch"
 
 // This is sample data
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Aditya BMV",
+    email: "adityabmv@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
     {
-      title: "Inbox",
+      title: "Institutes",
       url: "#",
-      icon: Inbox,
+      icon: Landmark,
       isActive: true,
     },
     {
-      title: "Drafts",
+      title: "Members",
       url: "#",
-      icon: File,
+      icon: UserRound,
       isActive: false,
     },
     {
-      title: "Sent",
+      title: "Programs and Courses",
       url: "#",
-      icon: Send,
+      icon: Book,
       isActive: false,
     },
     {
-      title: "Junk",
+      title: "Statistics",
       url: "#",
-      icon: ArchiveX,
+      icon: ChartPie,
       isActive: false,
     },
-    {
-      title: "Trash",
-      url: "#",
-      icon: Trash2,
-      isActive: false,
-    },
+
   ],
   mails: [
     {
@@ -178,6 +177,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarHeader>
+        <Separator/>
         <SidebarContent>
           <SidebarGroup>
             <SidebarGroupContent className="px-1.5 md:px-0">
@@ -211,7 +211,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
+          
         </SidebarContent>
+        <Separator/>
         <SidebarFooter>
           <NavUser user={data.user} />
         </SidebarFooter>
@@ -225,10 +227,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <div className="text-base font-medium text-foreground">
               {activeItem.title}
             </div>
-            <Label className="flex items-center gap-2 text-sm">
-              <span>Unreads</span>
-              <Switch className="shadow-none" />
-            </Label>
           </div>
           <SidebarInput placeholder="Type to search..." />
         </SidebarHeader>
@@ -248,8 +246,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <span className="font-medium">{mail.subject}</span>
                   <span className="line-clamp-2 w-[260px] whitespace-break-spaces text-xs">
                     {mail.teaser}
+                  <Button>View Details</Button>
                   </span>
                 </a>
+
               ))}
             </SidebarGroupContent>
           </SidebarGroup>
