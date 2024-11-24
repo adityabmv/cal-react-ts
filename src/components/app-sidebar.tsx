@@ -177,7 +177,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarHeader>
-        <Separator/>
+        <Separator className="" />
         <SidebarContent>
           <SidebarGroup>
             <SidebarGroupContent className="px-1.5 md:px-0">
@@ -213,7 +213,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroup>
           
         </SidebarContent>
-        <Separator/>
+        <Separator className="" />
         <SidebarFooter>
           <NavUser user={data.user} />
         </SidebarFooter>
@@ -246,8 +246,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <span className="font-medium">{mail.subject}</span>
                   <span className="line-clamp-2 w-[260px] whitespace-break-spaces text-xs">
                     {mail.teaser}
-                  <Button>View Details</Button>
                   </span>
+                  <div className="flex w-full justify-end">
+                  <Button size="sm" variant="outline">View Details</Button>
+                  </div>
+                  
                 </a>
 
               ))}

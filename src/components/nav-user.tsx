@@ -40,7 +40,7 @@ export function NavUser({
   }
 }) {
   const { isMobile } = useSidebar()
-
+  let role:string = "Super Admin"
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -83,7 +83,8 @@ export function NavUser({
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <Sparkles />
-                Upgrade to Pro
+                {/* TODO: Use a tag to highlight the role */}
+                Role: {role}
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
@@ -91,10 +92,6 @@ export function NavUser({
               <DropdownMenuItem>
                 <BadgeCheck />
                 Account
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCard />
-                Billing
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Bell />
